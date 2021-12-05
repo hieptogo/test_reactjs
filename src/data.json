@@ -1,0 +1,120 @@
+{
+    "pizza": [
+        {
+            "id": 1,
+            "name": "Chicago Pizza",
+            "image": "/images/chicago-pizza.jpg",
+            "desc": "Thêm pho mai cho bánh pizza.",
+            "price": 90000
+        },
+        {
+            "id": 2,
+            "name": "Neapolitan Pizza",
+            "image": "/images/neapolitan-pizza.jpg",
+            "desc": "Thành phần gồm có: Nấm, ngô, dứa, ớt xanh, hành tây, cà chua, sốt cà chua, pho mai.",
+            "price": 70000
+        },
+        {
+            "id": 3,
+            "name": "New York Pizza",
+            "image": "/images/ny-pizza.jpg",
+            "desc": "Thành phần gồm có: Nấm, ngô, dứa, ớt xanh, hành tây, cà chua, sốt cà chua, pho mai.",
+            "price": 80000
+        },
+        {
+            "id": 4,
+            "name": "Sicilian Pizza",
+            "image": "/images/sicilian-pizza.jpg",
+            "desc": "Thành phần gồm có: Tôm, cá ngừ, hành tây, ớt xanh, dứa, sốt cà chua, pho mai.",
+            "price": 90000
+        },
+        {
+            "id": 5,
+            "name": "Bún Chả Nhà Làm",
+            "image": "/images/bun-cha.jpg",
+            "desc": "Nhắc đến Hà Nội người ta nhớ ngay đến nền ẩm thực lâu đời với các món ngon như kem tràng tiền, cốm, bún thang, bún ốc,...và không thể không nhắc đến món bún chả Hà Nội trứ danh.",
+            "price": 90000
+        },
+        {
+            "id": 6,
+            "name": "Chicago Pizza",
+            "image": "/images/chicago-pizza.jpg",
+            "desc": "Thêm pho mai cho bánh pizza.",
+            "price": 90000
+        },
+        {
+            "id": 7,
+            "name": "Neapolitan Pizza",
+            "image": "/images/neapolitan-pizza.jpg",
+            "desc": "Thành phần gồm có: Nấm, ngô, dứa, ớt xanh, hành tây, cà chua, sốt cà chua, pho mai.",
+            "price": 70000
+        },
+        {
+            "id": 8,
+            "name": "New York Pizza",
+            "image": "/images/ny-pizza.jpg",
+            "desc": "Thành phần gồm có: Nấm, ngô, dứa, ớt xanh, hành tây, cà chua, sốt cà chua, pho mai.",
+            "price": 80000
+        },
+        {
+            "id": 9,
+            "name": "Sicilian Pizza",
+            "image": "/images/sicilian-pizza.jpg",
+            "desc": "Thành phần gồm có: Tôm, cá ngừ, hành tây, ớt xanh, dứa, sốt cà chua, pho mai.",
+            "price": 90000
+        },
+        {
+            "id": 10,
+            "name": "Bún Chả Nhà Làm",
+            "image": "/images/bun-cha.jpg",
+            "desc": "Nhắc đến Hà Nội người ta nhớ ngay đến nền ẩm thực lâu đời với các món ngon như kem tràng tiền, cốm, bún thang, bún ốc,...và không thể không nhắc đến món bún chả Hà Nội trứ danh.",
+            "price": 90000
+        }
+    ],
+    "images":[
+        {
+            "id": 1,
+            "src": "/images/quang-cao/may-xanh.jpg"
+        },
+        {
+            "id": 2,
+            "src": "/images/quang-cao/the-gioi.jpg"
+        },
+        {
+            "id": 1,
+            "src": "/images/quang-cao/vinamilk.jpg"
+        }
+    ],
+    "recruitment":[
+        {
+            "id": 1,
+            "title": "Nhân Viên Kế Toán",
+            "company": "Cổ Phần Tập Đoàn Vàng Bạc Đá Quý Doji",
+            "content": "Theo dõi doanh thu bán hàng trang sức của tất cả các trung tâm, cửa hàng bán lẻ, đảm bảo nghiệp vụ bán hàng được thu tiền đúng, đủ và nộp đủ tiền về cho Chi nhánh."
+        },
+        {
+            "id": 2,
+            "title": "Trưởng Nhóm Quản Lý Đơn Hàng",
+            "company": "YCH Protrade - Công Ty TNHH YCH-Protrade",
+            "content": "Đảm bảo tất cả đơn hàng (pick tự động hàng loạt và pick từng đơn) trên hệ thống được xử lý trong khoảng thời gian khách hàng quy định."
+        },
+        {
+            "id": 3,
+            "title": "Nhân Viên Kế Toán",
+            "company": "Cổ Phần Tập Đoàn Vàng Bạc Đá Quý Doji",
+            "content": "Theo dõi doanh thu bán hàng trang sức của tất cả các trung tâm, cửa hàng bán lẻ, đảm bảo nghiệp vụ bán hàng được thu tiền đúng, đủ và nộp đủ tiền về cho Chi nhánh."
+        },
+        {
+            "id": 4,
+            "title": "Trưởng Nhóm Quản Lý Đơn Hàng",
+            "company": "YCH Protrade - Công Ty TNHH YCH-Protrade",
+            "content": "Đảm bảo tất cả đơn hàng (pick tự động hàng loạt và pick từng đơn) trên hệ thống được xử lý trong khoảng thời gian khách hàng quy định."
+        },
+        {
+            "id": 5,
+            "title": "Nhân Viên Kế Toán",
+            "company": "Cổ Phần Tập Đoàn Vàng Bạc Đá Quý Doji",
+            "content": "Theo dõi doanh thu bán hàng trang sức của tất cả các trung tâm, cửa hàng bán lẻ, đảm bảo nghiệp vụ bán hàng được thu tiền đúng, đủ và nộp đủ tiền về cho Chi nhánh."
+        }
+    ]
+}

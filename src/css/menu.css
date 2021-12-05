@@ -1,0 +1,42 @@
+.myMenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.myMenu li {
+    float: left;
+}
+
+.myMenu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.myMenu li a:hover {
+    background-color: #111;
+    color: rgb(9, 70, 240);
+}
+
+.footer {
+    position: fixed;
+    padding: 15px 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+.active .page-link{
+    z-index: auto !important;
+}
+.pagination-custom{
+    display: flex;
+    justify-content: center;
+}
