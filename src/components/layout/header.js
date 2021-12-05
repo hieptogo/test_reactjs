@@ -1,7 +1,8 @@
 import React from "react";
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import SearchPage from './input_search';
 
-const Header = () => {
+const Header = (data) => {
     const myMenu = [
         {
             href: '#home',
@@ -27,11 +28,18 @@ const Header = () => {
 
     return (
         <div className="myMenu">
-            <ul style={{ marginBottom: '0 !important' }}>
-                <Container>
-                    {listItems}
-                </Container>
-            </ul>
+            <Container>
+                <Row style={{alignItems: 'center'}}>
+                    <Col xs={9}>
+                        <ul style={{ marginBottom: '0 !important' }}>
+                            {listItems}
+                        </ul>
+                    </Col>
+                    <Col xs={3}>
+                        <SearchPage data={data}/>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 }

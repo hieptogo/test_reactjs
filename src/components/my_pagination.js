@@ -37,7 +37,8 @@ class MyPagination extends React.Component {
     nextPage = (page) => e => {
         e.preventDefault();
         const { onPageChanged = f => f } = this.props;
-        const currentPage = Math.max(0, Math.min((page + 1), this.totalPages));
+        const currentPage = Math.max(0, Math.min((page + 1), this.state.totalPages));
+        console.log(this.state);
         const paginationData = {
             currentPage,
             totalPages: this.totalPages,
@@ -50,7 +51,7 @@ class MyPagination extends React.Component {
     nextLastPage =  e => {
         e.preventDefault();
         const { onPageChanged = f => f } = this.props;
-        const currentPage = Math.max(0, this.totalPages);
+        const currentPage = Math.max(0, this.state.totalPages);
         const paginationData = {
             currentPage,
             totalPages: this.totalPages,
@@ -63,7 +64,7 @@ class MyPagination extends React.Component {
     prevPage = (page) => e => {
         e.preventDefault();
         const { onPageChanged = f => f } = this.props;
-        const currentPage = Math.max(0, Math.min((page - 1), this.totalPages));
+        const currentPage = Math.max((page - 1), 1);
         const paginationData = {
             currentPage,
             totalPages: this.totalPages,
@@ -76,7 +77,7 @@ class MyPagination extends React.Component {
     prevFirstPage = e => {
         e.preventDefault();
         const { onPageChanged = f => f } = this.props;
-        const currentPage = Math.max(0, Math.min(1, this.totalPages));
+        const currentPage = Math.max(0, Math.min(1, this.state.totalPages));
         const paginationData = {
             currentPage,
             totalPages: this.totalPages,
