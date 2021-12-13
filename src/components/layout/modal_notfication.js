@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Button } from 'react-bootstrap';
 
-function ModalNotfication({ show, dataName, hideModal }) {
+const ModalNotfication = ({show, dataName, hideModal}) => {
     return (
         <Modal show={show} onHide={() => hideModal()}>
             <Modal.Header closeButton>

@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from 'react-bootstrap';
 import Datapizzas from './../../data';
 
-function News() {
+const ImageList = () => {
     return (
         <div>
             {Datapizzas.images.map(data => (
@@ -11,4 +11,4 @@ function News() {
         </div>
     )
 }
-export default News;
+export default ImageList;

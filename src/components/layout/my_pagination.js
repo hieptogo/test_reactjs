@@ -7,7 +7,9 @@ class MyPagination extends React.Component {
         this.state = {
             currentPage: 1,
             pageLimit: 10,
-            totalPages: null
+            totalPages: null,
+            lastPage: false,
+            firstPage: false,
         };
         const { totalRecords = null, pageLimit } = this.props;
         this.pageLimit = typeof pageLimit === 'number' ? pageLimit : 10;
@@ -17,35 +19,50 @@ class MyPagination extends React.Component {
 
     componentDidMount(){
         this.setState({
-            pageLimit: this.pageLimit
+            pageLimit: this.pageLimit,
+            totalPages: this.totalPages,
+            firstPage: true
         })
     }
 
     chosePage = (page) => e => {
         e.preventDefault();
         const { onPageChanged = f => f } = this.props;
-        const currentPage = Math.max(0, Math.min(page, this.totalPages));
+        const currentPage = Math.max(0, Math.min(page, this.state.totalPages));
         const paginationData = {
             currentPage,
             totalPages: this.totalPages,
             pageLimit: this.state.pageLimit,
             totalRecords: this.totalRecords
         };
-        this.setState({ currentPage }, () => onPageChanged(paginationData));
+        this.setState(
+            {
+                currentPage,
+                firstPage: currentPage === 1 ? true : false, 
+                lastPage: currentPage === this.state.totalPages ? true : false 
+            }, 
+            () => onPageChanged(paginationData)
+        );
     }
 
     nextPage = (page) => e => {
         e.preventDefault();
         const { onPageChanged = f => f } = this.props;
         const currentPage = Math.max(0, Math.min((page + 1), this.state.totalPages));
-        console.log(this.state);
         const paginationData = {
             currentPage,
             totalPages: this.totalPages,
             pageLimit: this.state.pageLimit,
             totalRecords: this.totalRecords
         };
-        this.setState({ currentPage }, () => onPageChanged(paginationData));
+        this.setState(
+            { 
+                currentPage,
+                firstPage: false,
+                lastPage: currentPage == this.state.totalPages ? true : false,
+            },
+            () => onPageChanged(paginationData)
+        );
     }
 
     nextLastPage =  e => {
@@ -58,7 +75,14 @@ class MyPagination extends React.Component {
             pageLimit: this.state.pageLimit,
             totalRecords: this.totalRecords
         };
-        this.setState({ currentPage }, () => onPageChanged(paginationData));
+        this.setState(
+            { 
+                currentPage,
+                firstPage: false,
+                lastPage: true,
+            },
+            () => onPageChanged(paginationData)
+        );
     }
 
     prevPage = (page) => e => {
@@ -71,20 +95,34 @@ class MyPagination extends React.Component {
             pageLimit: this.state.pageLimit,
             totalRecords: this.totalRecords
         };
-        this.setState({ currentPage }, () => onPageChanged(paginationData));
+        this.setState(
+            { 
+                currentPage,
+                firstPage: currentPage === 1 ? true : false,
+                lastPage: false,
+            },
+            () => onPageChanged(paginationData)
+        );
     }
 
     prevFirstPage = e => {
         e.preventDefault();
         const { onPageChanged = f => f } = this.props;
-        const currentPage = Math.max(0, Math.min(1, this.state.totalPages));
+        const currentPage = Math.max(1, Math.min(1, this.state.totalPages));
         const paginationData = {
             currentPage,
             totalPages: this.totalPages,
             pageLimit: this.state.pageLimit,
             totalRecords: this.totalRecords
         };
-        this.setState({ currentPage }, () => onPageChanged(paginationData));
+        this.setState(
+            { 
+                currentPage,
+                firstPage: true,
+                lastPage: false,
+            },
+            () => onPageChanged(paginationData)
+        );
     }
 
     select = e => {
@@ -100,7 +138,16 @@ class MyPagination extends React.Component {
             totalRecords: this.totalRecords
         };
 
-        this.setState({ pageLimit, totalPages, currentPage }, () => onPageChanged(paginationData));
+        this.setState(
+            {
+                pageLimit,
+                totalPages,
+                currentPage,
+                firstPage: currentPage === 1 ? true : false,
+                lastPage: currentPage === totalPages ? true : false,
+            },
+            () => onPageChanged(paginationData)
+        );
         
     }
 
@@ -128,15 +175,15 @@ class MyPagination extends React.Component {
                     <Col xs={10}>
                         <div className="pagination-custom">
                             <Pagination>
-                                <Pagination.First onClick={this.prevFirstPage}/>
-                                <Pagination.Prev onClick={this.prevPage(this.state.currentPage)}/>
+                                <Pagination.First disabled={this.state.firstPage} onClick={this.prevFirstPage}/>
+                                <Pagination.Prev disabled={this.state.firstPage} onClick={this.prevPage(this.state.currentPage)}/>
                                 {
-                                    pageNumbers.map((page, index) => (
+                                    pageNumbers.map((page) => (
                                         <Pagination.Item key={page} className={`${this.state.currentPage === page  ? "active" : ""}`} onClick={this.chosePage(page)}>{page}</Pagination.Item>
                                     ))
                                 }
-                                <Pagination.Next onClick={this.nextPage(this.state.currentPage)}/>
-                                <Pagination.Last onClick={this.nextLastPage}/>
+                                <Pagination.Next disabled={this.state.lastPage} onClick={this.nextPage(this.state.currentPage)}/>
+                                <Pagination.Last disabled={this.state.lastPage} onClick={this.nextLastPage}/>
                             </Pagination>
 
                         </div>

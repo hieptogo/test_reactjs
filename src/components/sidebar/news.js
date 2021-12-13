@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from 'react-bootstrap';
 import DataRecruitment from './../../data';
 
-function News() {
+const News = () => {
     return (
         <Card className="mb-3">
             <Card.Header>

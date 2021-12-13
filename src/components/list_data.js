@@ -1,10 +1,11 @@
 import React from "react";
 import { Row, Col, Card, Badge, Button, Form } from 'react-bootstrap';
+
 import Datapizzas from './../data';
-import MyPagination from './../components/my_pagination';
+
+import MyPagination from './../components/layout/my_pagination';
 import ModalNotfication from './../components/layout/modal_notfication';
-
-
+import SearchPage from './../components/layout/input_search';
 
 class PizzaCard extends React.Component {
     constructor() {
@@ -29,7 +30,7 @@ class PizzaCard extends React.Component {
                     </div>
                     <Card.Text className="text-secondary">{this.props.data.desc}</Card.Text>
                     <Button
-                        onClick={() => this.props.showModal(this.props.data.name)}
+                        onClick={() => this.props.showModal(this.props.data)}
                         className="mt-auto font-weight-bold"
                         variant="success"
                         block
@@ -45,16 +46,16 @@ class PizzaCard extends React.Component {
 class ListPizza extends React.Component {
     constructor() {
         super();
-        this.onPageChanged = this.onPageChanged.bind(this);
-
         this.state = {
             showModal: false,
-            dataName: null,
+            dataPizza: null,
             currentPage: 1,
             pageLimit: 3,
             totalPages: null,
             newData: [],
         };
+        this.onPageChanged = this.onPageChanged.bind(this);
+        this.setUpdateData = this.setUpdateData.bind(this);
     }
     componentDidMount() {
         this.setState({
@@ -63,25 +64,38 @@ class ListPizza extends React.Component {
     }
 
     onPageChanged = (data) => {
+        
         const { currentPage, pageLimit, totalPages } = data;
         const offset = (currentPage - 1) * pageLimit;
         const newData = Datapizzas.pizza.slice(offset, offset + pageLimit);
+        console.log(newData)
         this.setState({ currentPage, pageLimit, totalPages, newData });
+    }
+
+    setUpdateData = (data) => {
+        const { newData } = data;
+        console.log(data)
+        this.setState({ newData });
     }
 
     render() {
         // show or hide modal
         const hideModal = () => this.setState({showModal: false});
-        const showModal = (name) => {
-            const dataName = name ? name : null;
-            this.setState({showModal: true, dataName});
+        const showModal = (data) => {
+            const dataPizza = data ? data : null;
+            this.setState({showModal: true, dataPizza});
         }
 
         return (
-            <div>
-                <ModalNotfication show={this.state.showModal} dataName={this.state.dataName} hideModal={hideModal} />
+            <>
+                <ModalNotfication show={this.state.showModal} data={this.state.dataPizza} hideModal={hideModal} />
                 <Row className="mb-3">
-                    <MyPagination totalRecords={Datapizzas.pizza.length} pageLimit={this.state.pageLimit} onPageChanged={this.onPageChanged} />
+                    <Col xs={8}>
+                        <MyPagination totalRecords={Datapizzas.pizza.length} pageLimit={this.state.pageLimit} onPageChanged={this.onPageChanged} />
+                    </Col>
+                    <Col xs={4}>
+                        <SearchPage data={Datapizzas.pizza} setUpdateData={this.setUpdateData}/>
+                    </Col>
                 </Row>
                 <Row>
                     {this.state.newData.map(data => (
@@ -90,7 +104,7 @@ class ListPizza extends React.Component {
                         </Col>
                     ))}
                 </Row>
-            </div >
+            </>
         );
     }
 }
