@@ -27,10 +27,6 @@ const ShowModal = () => {
 
     const hideModal = () => setFlag(false);
 
-    const changeInputValue = e => {
-        setInput(e.target.value)
-    }
-
     const submitForm = e => {
         e.preventDefault();
         setSubmit(true)
@@ -53,7 +49,7 @@ const ShowModal = () => {
                         className="form-control"
                         name="email"
                         placeholder="Bạn hãy điền gì đó vào đây"
-                        onChange={e => changeInputValue(e)}
+                        onChange={e => setInput(e.target.value)}
                     />
                 </div>
                 <button type="submit" className="btn btn-primary">
