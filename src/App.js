@@ -11,11 +11,11 @@ import Footer from './components/layout/footer';
 import ListData from './components/list_data';
 import News from './components/sidebar/news';
 import ImageList from './components/sidebar/image_list';
-import ImgAnimation from './components/body/img_animation';
-import ShowModal from './components/body/submit_show_modal';
-import FormSubmit from './components/body/b3_form_submit';
-import ChangeValue from './components/body/b3_change_value_input';
-import ListTodo from './components/todo/list_todo';
+import ImgAnimation from './components/b3/img_animation';
+import ShowModal from './components/b3/submit_show_modal';
+import FormSubmit from './components/b3/b3_form_submit';
+import ChangeValue from './components/b3/b3_change_value_input';
+import ListTodo from './components/b3/list_todo';
 
 function App() {
   return (

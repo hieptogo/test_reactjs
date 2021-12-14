@@ -69,7 +69,6 @@ const ListTodo = () => {
 
     return (
         <div className="mt-5">
-            <hr />
             <div className="list_todo">
                 <Card>
                     <Card.Header>

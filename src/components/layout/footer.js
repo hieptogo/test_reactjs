@@ -1,24 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
+import UpdateInfo from './../../components/b2/update_info';
+
 const Footer = () => {
-    const infor = {
-        name: "Nguyễn Văn Hiệp",
-        birthday: "01-02-1995",
-        avatar: "/images/avatar/avatar.png"
-    }
-
-    useEffect(() => {
-        const element = document.getElementById("infor_name");
-        element.innerHTML = "<Row>"
-            + "<ul>"
-            + "<li><strong>Họ Tên:</strong> " + infor.name + "</li>"
-            + "<li><strong>Ngày sinh:</strong> " + infor.birthday + "</li>"
-            + "</ul>"
-            + "<img src=" + infor.avatar + " width='100'>"
-            + "</Row>";
-    }, []);
-
     return (
         <div className="footer">
             <Container>
@@ -30,7 +15,7 @@ const Footer = () => {
                             <li><strong>Điện thoại:</strong> 0378103289</li>
                         </ul>
                     </Col>
-                    <Col id="infor_name"></Col>
+                    <UpdateInfo />
                 </Row>
             </Container>
         </div>
