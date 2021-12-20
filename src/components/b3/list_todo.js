@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import { Row, Col, Button, Card, Form } from 'react-bootstrap';
+import { Button, Card, Form } from 'react-bootstrap';
 import { FaEdit, FaPlus, FaTrashAlt } from 'react-icons/fa';
 
 const HeaderTodo = () => {
@@ -48,18 +48,23 @@ const ListTodo = () => {
     }
 
     const DeleteTodo = (id) => {
-        const newTodos = listItemTodo.filter((item) => {
-            return item.id !== id;
-        })
-        setListItemTodo(newTodos)
+        // const newTodos = listItemTodo.filter((item) => {
+        //     return item.id !== id;
+        // })
+        // setListItemTodo(newTodos)
+
+        const newData = [...listItemTodo];
+        newData.splice(id, 1)
+        setListItemTodo(newData)
     }
 
-    const Todos = listItemTodo.map((item) =>
+    const Todos = listItemTodo.map((item, index) =>
         <li key={item.id}>
             {item.title}
             <div className="button-list">
                 <Button variant="outline-primary" onClick={() => EditTodo(item.id)}><FaEdit /></Button>
                 <Button variant="outline-danger" onClick={() => DeleteTodo(item.id)}><FaTrashAlt /></Button>
+                <Button variant="outline-danger" onClick={() => DeleteTodo(index)}><FaTrashAlt />Delete</Button>
             </div>
         </li>
     );

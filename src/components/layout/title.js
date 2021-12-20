@@ -1,6 +1,5 @@
 import React from "react";
 import { Row } from 'react-bootstrap';
-import { FaTintSlash } from "react-icons/fa";
 
 const Title = () => {
     return(

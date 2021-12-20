@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Card, Badge, Button, Form } from 'react-bootstrap';
+import { Row, Col, Card, Badge, Button } from 'react-bootstrap';
 
 import Datapizzas from './../data';
 
@@ -73,9 +73,8 @@ class ListPizza extends React.Component {
     }
 
     setUpdateData = (data) => {
-        const { newData } = data;
-        console.log(data)
-        this.setState({ newData });
+        const { dataNew } = data;
+        this.setState({ newData: dataNew });
     }
 
     render() {

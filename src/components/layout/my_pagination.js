@@ -176,10 +176,13 @@ class MyPagination extends React.Component {
                         <div className="pagination-custom">
                             <Pagination>
                                 <Pagination.First disabled={this.state.firstPage} onClick={this.prevFirstPage}/>
-                                <Pagination.Prev disabled={this.state.firstPage} onClick={this.prevPage(this.state.currentPage)}/>
+                                <Pagination.Prev disabled={this.state.firstPage}
+                                    onClick={this.prevPage(this.state.currentPage)}/>
                                 {
                                     pageNumbers.map((page) => (
-                                        <Pagination.Item key={page} className={`${this.state.currentPage === page  ? "active" : ""}`} onClick={this.chosePage(page)}>{page}</Pagination.Item>
+                                        <Pagination.Item key={page}
+                                            className={`${this.state.currentPage === page  ? "active" : ""}`}
+                                            onClick={this.chosePage(page)}>{page}</Pagination.Item>
                                     ))
                                 }
                                 <Pagination.Next disabled={this.state.lastPage} onClick={this.nextPage(this.state.currentPage)}/>
