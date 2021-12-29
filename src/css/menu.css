@@ -1,5 +1,5 @@
 .myMenu {
-    background-color: #333;
+    background-color: #dee2e6;
 }
 
 .myMenu ul {
@@ -15,15 +15,23 @@
 
 .myMenu li a {
     display: block;
-    color: white;
+    color: #333333;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .myMenu li a:hover {
-    background-color: #111;
-    color: rgb(9, 70, 240);
+    border-bottom: 5px solid blue;
+    color: blue !important;
+}
+
+a.active {
+    border-bottom: 5px solid blue;
+    color: blue !important;
 }
 
 .footer {
@@ -148,4 +156,7 @@
 
 .text-right {
     text-align: right;
+}
+.mb-15{
+    margin-bottom: 150px !important;
 }

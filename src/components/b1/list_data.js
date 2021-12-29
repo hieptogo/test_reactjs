@@ -1,11 +1,11 @@
 import React from "react";
 import { Row, Col, Card, Badge, Button } from 'react-bootstrap';
 
-import Datapizzas from './../data';
+import Datapizzas from './../../data';
 
-import MyPagination from './../components/layout/my_pagination';
-import ModalNotfication from './../components/layout/modal_notfication';
-import SearchPage from './../components/layout/input_search';
+import MyPagination from './../../components/layout/my_pagination';
+import ModalNotfication from './../../components/layout/modal_notfication';
+import SearchPage from './../../components/layout/input_search';
 
 class PizzaCard extends React.Component {
     constructor() {
@@ -64,7 +64,7 @@ class ListPizza extends React.Component {
     }
 
     onPageChanged = (data) => {
-        
+
         const { currentPage, pageLimit, totalPages } = data;
         const offset = (currentPage - 1) * pageLimit;
         const newData = Datapizzas.pizza.slice(offset, offset + pageLimit);
@@ -79,21 +79,18 @@ class ListPizza extends React.Component {
 
     render() {
         // show or hide modal
-        const hideModal = () => this.setState({showModal: false});
+        const hideModal = () => this.setState({ showModal: false });
         const showModal = (data) => {
             const dataPizza = data ? data : null;
-            this.setState({showModal: true, dataPizza});
+            this.setState({ showModal: true, dataPizza });
         }
 
         return (
             <>
                 <ModalNotfication show={this.state.showModal} data={this.state.dataPizza} hideModal={hideModal} />
                 <Row className="mb-3">
-                    <Col xs={8}>
-                        <MyPagination totalRecords={Datapizzas.pizza.length} pageLimit={this.state.pageLimit} onPageChanged={this.onPageChanged} />
-                    </Col>
-                    <Col xs={4}>
-                        <SearchPage data={Datapizzas.pizza} setUpdateData={this.setUpdateData}/>
+                    <Col>
+                        <SearchPage data={Datapizzas.pizza} setUpdateData={this.setUpdateData} />
                     </Col>
                 </Row>
                 <Row>
@@ -102,6 +99,11 @@ class ListPizza extends React.Component {
                             <PizzaCard data={data} showModal={showModal} />
                         </Col>
                     ))}
+                </Row>
+                <Row>
+                    <Col>
+                        <MyPagination totalRecords={Datapizzas.pizza.length} pageLimit={this.state.pageLimit} onPageChanged={this.onPageChanged} />
+                    </Col>
                 </Row>
             </>
         );

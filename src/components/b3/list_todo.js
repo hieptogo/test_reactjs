@@ -48,11 +48,6 @@ const ListTodo = () => {
     }
 
     const DeleteTodo = (id) => {
-        // const newTodos = listItemTodo.filter((item) => {
-        //     return item.id !== id;
-        // })
-        // setListItemTodo(newTodos)
-
         const newData = [...listItemTodo];
         newData.splice(id, 1)
         setListItemTodo(newData)
@@ -63,7 +58,6 @@ const ListTodo = () => {
             {item.title}
             <div className="button-list">
                 <Button variant="outline-primary" onClick={() => EditTodo(item.id)}><FaEdit /></Button>
-                <Button variant="outline-danger" onClick={() => DeleteTodo(item.id)}><FaTrashAlt /></Button>
                 <Button variant="outline-danger" onClick={() => DeleteTodo(index)}><FaTrashAlt />Delete</Button>
             </div>
         </li>

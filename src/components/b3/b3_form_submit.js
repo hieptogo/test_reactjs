@@ -57,10 +57,6 @@ const FormSubmit = () => {
 
     return (
         <>
-            <hr/>
-            <div className="text-center"><h2>Thực hành buổi 3</h2></div>
-            <hr/>
-
             <h2>{title}</h2>
             <form onSubmit={e => submitForm(e)} >
                 <div className="form-group">

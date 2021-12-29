@@ -13,14 +13,10 @@ const ImgAnimation = () => {
     const clickImage = () => { setAnimation(!animation) }
 
     return (
-        <>
-            <hr />
-            <div className="text-center"><h2>Thực hành buổi 2</h2></div>
-            <hr />
-
+        <div className="mt-3">
             <h2>Click me</h2>
             <img id="image_test" src="/images/avatar/avatar.png" onClick={clickImage} />
-        </>
+        </div>
     )
 }
 export default ImgAnimation;

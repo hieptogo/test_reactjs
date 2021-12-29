@@ -1,4 +1,3 @@
-//Import react vào trong dự án
 import React, { useEffect, useState } from "react";
 import { Modal, Button } from 'react-bootstrap';
 
@@ -25,8 +24,6 @@ const ShowModal = () => {
     const [flag, setFlag] = useState(false)
     const [submit, setSubmit] = useState(false)
 
-    const hideModal = () => setFlag(false);
-
     const submitForm = e => {
         e.preventDefault();
         setSubmit(true)
@@ -35,19 +32,19 @@ const ShowModal = () => {
     useEffect(() => {
         if(submit){
             setFlag(true)
+            setSubmit(false)
         }
     }, [submit])
 
     return (
         <>
-            <ModalShow show={flag} data={input} hideModal={hideModal} />
+            <ModalShow show={flag} data={input} hideModal={setFlag} />
             <form onSubmit={e => submitForm(e)} className="mt-5">
                 <div className="form-group mb-1">
                     <label htmlFor="text">Bạn hãy điền gì đó vào đây:</label>
                     <input
                         type="text"
                         className="form-control"
-                        name="email"
                         placeholder="Bạn hãy điền gì đó vào đây"
                         onChange={e => setInput(e.target.value)}
                     />

@@ -1,37 +1,43 @@
-import React, { useState } from "react";
-import { Button, InputGroup, FormControl } from 'react-bootstrap';
-import { FaSearch } from 'react-icons/fa';
+import * as React from 'react';
+import { useState } from "react";
+
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import DirectionsIcon from '@mui/icons-material/Directions';
 
 const SearchPage = props => {
-    const {data, setUpdateData} = props;
+    const { data, setUpdateData } = props;
     const [query, setQuery] = useState('');
 
-    const handleInputChange = (e) => {
-        setQuery(e.target.value);
-    }
-
-    const filterArray = () => {
-        if(query){
+    const filterArray = e => {
+        e.preventDefault();
+        if (query) {
             const filterData = data.filter((element) => {
                 return element.name.toLowerCase().includes(query.toLowerCase());
             })
 
-            setUpdateData({dataNew: filterData});
+            setUpdateData({ dataNew: filterData });
         }
     }
 
     return (
-        <InputGroup size="sm">
-            <InputGroup.Text id="basic-addon1"><FaSearch /></InputGroup.Text>
-            <FormControl onChange={e => handleInputChange(e)}
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="basic-addon1"
+        <Paper component="form"
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+        >
+            <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Search Google Maps"
+                inputProps={{ 'aria-label': 'search google maps' }}
+                onChange={e => setQuery(e.target.value)}
             />
-
-            <Button onClick={filterArray} >Tìm kiếm</Button>
-        </InputGroup>
-
+            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={e => filterArray(e)}>
+                <SearchIcon />
+            </IconButton>
+        </Paper>
     )
 }
 export default SearchPage;
