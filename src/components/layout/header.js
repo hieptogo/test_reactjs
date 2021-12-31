@@ -18,24 +18,11 @@ function LinkTab(props) {
     );
 }
 
-const Header = () => {
-    const myMenu = [
-        {
-            href: '/',
-            name: 'Home'
-        },
-        {
-            href: '/thuc-hanh-b2',
-            name: 'Thực hành b2'
-        },
-        {
-            href: '/thuc-hanh-b3',
-            name: 'Thực hành b3'
-        },
-    ];
+const Header = props => {
+    const {dataMenu} = props;
 
-    const listItems = myMenu.map((item) =>
-        <li key={item.href}><NavLink exact to={item.href}>{item.name}</NavLink></li>
+    const listItems = dataMenu.map((item) =>
+        <li key={item.path}><NavLink exact to={item.path}>{item.name}</NavLink></li>
     );
 
     return (

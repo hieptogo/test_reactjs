@@ -19,18 +19,18 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     text-transform: uppercase;
     font-weight: 600;
 }
 
 .myMenu li a:hover {
-    border-bottom: 5px solid blue;
+    border-bottom: 3px solid blue;
     color: blue !important;
 }
 
 a.active {
-    border-bottom: 5px solid blue;
+    border-bottom: 3px solid blue;
     color: blue !important;
 }
 
@@ -157,6 +157,16 @@ a.active {
 .text-right {
     text-align: right;
 }
-.mb-15{
+
+.mb-15 {
     margin-bottom: 150px !important;
+}
+
+.error {
+    border-color: red !important;
+}
+
+.input-feedback {
+    color: red !important;
+    margin-top: .25rem;
 }

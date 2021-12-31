@@ -9,7 +9,7 @@ import ListTodo from './../../components/b3/list_todo';
 const B3 = () => {
     return (
         <>
-            <Title title="Thực Hành Buổi 3"/>
+            <Title title="Thực Hành Buổi 3" />
             <FormSubmit />
             <ChangeValue />
             <ListTodo />
