@@ -1,8 +1,10 @@
-import {combineReducers} from 'redux'
-import staffReducers from './staff_reducers'
- 
+import { combineReducers } from 'redux'
+import staffs from './staffs'
+
 //Ở đay chúng ta có thể gộp nhiều reducers
 // Ở ví dụ này mình chỉ có 1 reducers là noteReducers
-export default combineReducers({
-    staffs: staffReducers
-})
+const reducers = combineReducers({
+    staffs,
+});
+
+export default reducers;

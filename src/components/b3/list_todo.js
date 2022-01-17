@@ -20,7 +20,7 @@ const ListTodo = () => {
     const AddTodo = () => {
         if (itemTodo.trim()) {
             if(edit){
-                const objIndex = listItemTodo.findIndex((obj => obj.id == edit));
+                const objIndex = listItemTodo.findIndex((obj => obj.id === edit));
                 listItemTodo[objIndex].title = itemTodo;
 
                 setListItemTodo(listItemTodo)

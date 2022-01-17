@@ -2,21 +2,6 @@ import React from "react";
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-
-function LinkTab(props) {
-    return (
-        <Tab
-            component="a"
-            onClick={(event) => {
-                event.preventDefault();
-            }}
-            {...props}
-        />
-    );
-}
 
 const Header = props => {
     const {dataMenu} = props;

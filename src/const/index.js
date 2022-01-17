@@ -1,4 +1,7 @@
-export const GET_STAFF = "GET_STAFF";
+export const GET_STAFFS = "GET_STAFFS";
+export const GET_STAFFS_REQUESTED = "GET_STAFFS_REQUESTED";
+export const GET_STAFFS_SUCCESS = "GET_STAFFS_SUCCESS";
+export const GET_STAFFS_FAILED = "GET_STAFFS_FAILED";
 export const ADD_NEW_STAFF = "ADD_NEW_STAFF";
-export const REMOVE_STAFF  = "REMOVE_STAFF";
-export const EDIT_STAFF    = "EDIT_STAFF";
+export const REMOVE_STAFF = "REMOVE_STAFF";
+export const EDIT_STAFF = "EDIT_STAFF";

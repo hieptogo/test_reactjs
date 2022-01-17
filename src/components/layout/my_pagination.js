@@ -59,7 +59,7 @@ class MyPagination extends React.Component {
             { 
                 currentPage,
                 firstPage: false,
-                lastPage: currentPage == this.state.totalPages ? true : false,
+                lastPage: currentPage === this.state.totalPages ? true : false,
             },
             () => onPageChanged(paginationData)
         );

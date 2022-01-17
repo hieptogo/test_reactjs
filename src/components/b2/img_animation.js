@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 
 const ImgAnimation = () => {
     const [animation, setAnimation] = useState(false);
