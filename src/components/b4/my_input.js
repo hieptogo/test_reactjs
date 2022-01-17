@@ -9,16 +9,16 @@ const MyTextInput = ({ label, ...props }) => {
     return (
         <FormBootstrap.Group className="mb-3">
             <div className="form-group">
-                {/* <label htmlFor={props.id || props.name}>{label}</label> */}
-                <TextField
+                <label htmlFor={props.id || props.name} className={`${meta.touched && meta.error ? 'input-feedback' : null}`}>{label}</label>
+                {/* <TextField
                     fullWidth
                     error={meta.touched && meta.error}
                     id={props.name}
                     label={label}
                     {...field} {...props}
-                />
-                {/* <input className={`form-control ${meta.touched && meta.error ? 'error' : null}`}
-                    {...field} {...props} /> */}
+                /> */}
+                <input className={`form-control ${meta.touched && meta.error ? 'error' : null}`}
+                    {...field} {...props} />
                 {meta.touched && meta.error ? (
                     <div className="input-feedback">{meta.error}</div>
                 ) : null}

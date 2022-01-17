@@ -16,6 +16,7 @@ import B1 from './components/b1/b1';
 import B2 from './components/b2/b2';
 import B3 from './components/b3/b3';
 import B4 from './components/b4/b4';
+import B5 from './components/b5/b5';
 
 function App() {
   const dataMenu = [
@@ -43,6 +44,12 @@ function App() {
       component: "B4",
       name: "Thực hành b4"
     },
+    {
+      path: "/thuc-hanh-b5",
+      exact: true,
+      component: "B5",
+      name: "Thực hành b5"
+    },
   ]
 
   // const listRoute = dataMenu.map((item) =>
@@ -61,6 +68,7 @@ function App() {
                 <Route exact path="/thuc-hanh-b2" component={B2} />
                 <Route exact path="/thuc-hanh-b3" component={B3} />
                 <Route exact path="/thuc-hanh-b4" component={B4} />
+                <Route exact path="/thuc-hanh-b5" component={B5} />
               </Switch>
             </Col>
             <Col xs={3}>
