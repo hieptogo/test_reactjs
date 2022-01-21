@@ -4,9 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 import { Table } from 'react-bootstrap';
-import { connect } from "react-redux";
 
-import { actRemoveStaff, actEditStaff, getStaff } from "./../../actions/index";
+import { getStaff } from "./../../actions/index";
 
 function ShowStaff() {
     const dispatch = useDispatch();
@@ -14,10 +13,9 @@ function ShowStaff() {
     const loading = useSelector((state) => state.staffs.loading);
     const error = useSelector((state) => state.staffs.error);
 
-    console.log(staffs)
     useEffect(() => {
         dispatch(getStaff());
-    }, []);
+    },[]);
 
     // // Được gọi mỗi khi thay đổi giá trị
     // // của ghi chú.
@@ -65,22 +63,4 @@ function ShowStaff() {
         </>
     );
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         editStaff: (id, content) => {
-//             dispatch(actEditStaff(id, content));
-//         },
-//         removeStaff: id => {
-//             dispatch(actRemoveStaff(id));
-//         }
-//     };
-// };
-
-// const mapStateToProps = (state, ownProps) => {
-//     return {
-//         staffs: state.staffs,
-//     };
-// };
-
 export default ShowStaff;

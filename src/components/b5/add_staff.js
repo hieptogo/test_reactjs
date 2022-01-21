@@ -55,22 +55,22 @@ const AddStaff = (props) => {
                 <Modal.Body>
                     <Formik
                         initialValues={{
-                            staff_code: '',
-                            staff_name: '',
-                            staff_address: '',
-                            staff_age: '',
-                            staff_position: '',
+                            code: '',
+                            name: '',
+                            address: '',
+                            age: '',
+                            position: '',
                         }}
                         validationSchema={Yup.object({
-                            staff_code: Yup.string()
+                            code: Yup.string()
                                 .required('Required'),
-                            staff_name: Yup.string()
+                            name: Yup.string()
                                 .required('Required'),
-                            staff_address: Yup.string()
+                            address: Yup.string()
                                 .required('Required'),
-                            staff_age: Yup.number()
+                            age: Yup.number()
                                 .required('Required'),
-                            staff_position: Yup.string()
+                            position: Yup.string()
                                 .required('Required'),
                         })}
                         onSubmit={(values, { setSubmitting }) => {
@@ -83,21 +83,21 @@ const AddStaff = (props) => {
                         <Form id="submit-staff">
                             <MyTextInput
                                 label="Mã nhân viên"
-                                name="staff_code"
+                                name="code"
                                 type="text"
                             />
                             <MyTextInput
                                 label="Họ tên"
-                                name="staff_name"
+                                name="name"
                                 type="text"
                             />
-                            <MySelect label="Tuổi" name="staff_age" dataOptions={ageOptions} />
+                            <MySelect label="Tuổi" name="age" dataOptions={ageOptions} />
                             <MyTextInput
                                 label="Quê quán"
-                                name="staff_address"
+                                name="address"
                                 type="text"
                             />
-                            <MySelect label="Chức vụ" name="staff_position" dataOptions={positionOptions} />
+                            <MySelect label="Chức vụ" name="position" dataOptions={positionOptions} />
                         </Form>
                     </Formik>
                 </Modal.Body>
