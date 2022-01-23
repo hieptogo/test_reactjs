@@ -1,6 +1,10 @@
 import {
     GET_STAFFS_REQUESTED,
-    ADD_NEW_STAFF
+    ADD_NEW_STAFF,
+    REMOVE_STAFF_SUCCESS,
+    REMOVE_STAFF,
+    EDIT_STAFF,
+    EDIT_STAFF_SUCCESS
 } from "../const/index";
 
 export const getStaff = () => {
@@ -16,30 +20,24 @@ export const actAddStaff = (staff) => {
     };
 };
 
-// export const actRemoveStaff = (id) => {
-//     return {
-//         type: REMOVE_STAFF,
-//         id,
-//     };
-// };
+export const actRemoveStaff = (staffId) => {
+    return {
+        type: REMOVE_STAFF,
+        staffId,
+    };
+};
 
-// export const actEditStaff = (id, staff) => {
-//     return {
-//         type: EDIT_STAFF,
-//         id,
-//         staff,
-//     };
-// };
+export const actRemoveStaffSuccess = (staffId) => {
+    return {
+        type: REMOVE_STAFF_SUCCESS,
+        staffId,
+    };
+};
 
-// export const petIncrement = (number) => {
-//     return {
-//         type: "PET_INCREASED",
-//         payload: number,
-//     };
-// };
-
-// export const petDecrement = () => {
-//     return {
-//         type: "PET_DECREASED",
-//     };
-// };
+export const actEditStaff = (id, staff) => {
+    return {
+        type: EDIT_STAFF,
+        id,
+        staff,
+    };
+};

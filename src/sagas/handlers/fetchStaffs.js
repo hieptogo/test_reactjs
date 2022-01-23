@@ -2,12 +2,14 @@ import {
     GET_STAFFS_REQUESTED,
     GET_STAFFS_SUCCESS,
     GET_STAFFS_FAILED,
-    ADD_NEW_STAFF
+    ADD_NEW_STAFF,
+    REMOVE_STAFF,
+    // REMOVE_STAFF_SUCCESS
 } from "./../../const/index";
 
 import { call, put, takeLatest } from "redux-saga/effects";
 import { Api } from "./../api";
-import staffs from "../../reducers/staffs";
+// import staffs from "../../reducers/staffs";  
 
 // Get data staffs
 function* getStaffs() {
@@ -37,4 +39,20 @@ function* addNewStaffs(action) {
 
 export function* watcherAddStaffSaga() {
     yield takeLatest(ADD_NEW_STAFF, addNewStaffs);
+}
+
+function* deleteStaffs(action) {
+    try {
+        const staff = yield call(Api.deleteStaff(action.staffId));
+        if (staff === true) {
+            // yield put({ type: REMOVE_STAFF_SUCCESS, staffId: action.staffId });
+            yield put({ type: GET_STAFFS_REQUESTED });
+        }
+    } catch (err) {
+        yield put({ type: GET_STAFFS_FAILED, message: err.message });
+    }
+}
+
+export function* watcherRemoveStaffSaga() {
+    yield takeLatest(REMOVE_STAFF, deleteStaffs);
 }
